@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: #222;
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+}
+
+.judul {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Tempat buku */
+
+.book-container {
+    width: 90vw;
+    max-width: 1100px;
+
+    height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 2000px;
+}
+
+/* Buku */
+
+.book {
+    position: relative;
+
+    width: 800px;
+    height: 550px;
+
+    display: flex;
+
+    transform-style: preserve-3d;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Halaman */
+
+.page {
+    width: 50%;
+    height: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: white;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* Halaman kiri */
+
+.page-left {
+    border-radius: 5px 0 0 5px;
+
+    box-shadow:
+        inset -10px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Halaman kanan */
+
+.page-right {
+    border-radius: 0 5px 5px 0;
+
+    box-shadow:
+        inset 10px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Efek garis tengah buku */
+
+.book::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    transform: translateX(-50%);
+}
+
+/* Kontrol */
+
+.controls {
+    margin-top: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+button {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #222;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+.petunjuk {
+    margin-top: 5px;
+
+    color: #bbb;
+
+    font-size: 14px;
+}
+
+/* Nomor halaman */
+
+#pageNumber {
+    min-width: 100px;
+
+    text-align: center;
+}
+
+/* Tampilan HP */
+
+@media (max-width: 700px) {
+
+    .book-container {
+        height: 60vh;
+    }
+
+    .book {
+        width: 90vw;
+        height: 60vw;
+        max-height: 500px;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    button {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+}
